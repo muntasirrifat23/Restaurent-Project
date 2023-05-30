@@ -14,6 +14,7 @@ import OrderFood from './Pages/OrderFood/OrderFood.jsx';
 import Login from './Pages/Login/Login.jsx';
 import AuthProvider from './Auth/AuthProvider.jsx';
 import Register from './Pages/Register/Register.jsx';
+import PrivateRoute from './Auth/PrivateRoute.jsx';
 
 
 const router = createBrowserRouter([
@@ -27,7 +28,7 @@ const router = createBrowserRouter([
       },
       {
         path:'menu',
-        element:<Menu></Menu>
+        element:<PrivateRoute> <Menu></Menu> </PrivateRoute>
       },
       {
         path:'order',

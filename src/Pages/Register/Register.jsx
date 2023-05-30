@@ -1,6 +1,7 @@
 import React, { useContext, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContest } from '../../Auth/AuthProvider';
+import { Helmet } from 'react-helmet-async';
 
 const Register = () => {
     const { createUser } = useContext(AuthContest);
@@ -36,6 +37,9 @@ const Register = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Restaurant | Registration </title>
+            </Helmet>
             <form onSubmit={handleRegisterPage} ref={formRef}>
                 <div className="hero min-h-screen bg-base-200">
                     <div className="hero-content flex-col lg:flex-row-reverse">

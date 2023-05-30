@@ -25,7 +25,7 @@ const OrderFood = () => {
     }, [])
 
     // Pizza
-     useEffect(() => {
+    useEffect(() => {
         fetch('menu.json')
             .then(res => res.json())
             .then(data => {
@@ -36,7 +36,7 @@ const OrderFood = () => {
     }, [])
 
     // Soups
-     useEffect(() => {
+    useEffect(() => {
         fetch('menu.json')
             .then(res => res.json())
             .then(data => {
@@ -68,10 +68,14 @@ const OrderFood = () => {
             })
     }, [])
 
-   
+    const handleAddToCart=()=>{
+
+    }
+
+
     return (
         <div>
-             <Helmet>
+            <Helmet>
                 <title>Restaurant | Order Food </title>
             </Helmet>
 
@@ -87,20 +91,20 @@ const OrderFood = () => {
                         <Tab>drinks</Tab>
                     </TabList>
 
-{/* Salad */}
+                    {/* Salad */}
                     <TabPanel className='flex justify-center mt-5'>
                         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 flex justify-center'>
                             {
                                 saladed.map(salad => <div key={salad._id}>
                                     <div className="card bg-base-100 shadow-xl">
-                             <figure className="px-10 pt-10">
-                            <img src={salad.image} alt="Shoes" className="rounded-xl" />
+                                        <figure className="px-10 pt-10">
+                                            <img src={salad.image} alt="Shoes" className="rounded-xl" />
                                         </figure>
                                         <div className="card-body items-center text-center">
-                             <h2 className="card-title">{salad.name}</h2>
-                            <p>{salad.recipe}</p>
+                                            <h2 className="card-title">{salad.name}</h2>
+                                            <p>{salad.recipe}</p>
                                             <div className="card-actions">
-                                            <button className="btn btn-primary bg-white text-red-600 border-0 border-b-4 border-red-800 btn btn-primary">Add To Cart</button>
+                                                <button onClick={()=>handleAddToCart()} className="btn btn-primary bg-white text-red-600 border-0 border-b-4 border-red-800 btn btn-primary">Add To Cart</button>
                                             </div>
                                         </div>
                                     </div>
@@ -116,14 +120,14 @@ const OrderFood = () => {
                             {
                                 pizzas.map(pizza => <div key={pizza._id}>
                                     <div className="card bg-base-100 shadow-xl">
-                             <figure className="px-10 pt-10">
-                            <img src={pizza.image} alt="Shoes" className="rounded-xl" />
+                                        <figure className="px-10 pt-10">
+                                            <img src={pizza.image} alt="Shoes" className="rounded-xl" />
                                         </figure>
                                         <div className="card-body items-center text-center">
-                             <h2 className="card-title">{pizza.name}</h2>
-                            <p>{pizza.recipe}</p>
+                                            <h2 className="card-title">{pizza.name}</h2>
+                                            <p>{pizza.recipe}</p>
                                             <div className="card-actions">
-                                            <button className="btn btn-primary bg-white text-red-600 border-0 border-b-4 border-red-800 btn btn-primary">Add To Cart</button>
+                                                <button className="btn btn-primary bg-white text-red-600 border-0 border-b-4 border-red-800 btn btn-primary">Add To Cart</button>
                                             </div>
                                         </div>
                                     </div>
@@ -139,14 +143,14 @@ const OrderFood = () => {
                             {
                                 soups.map(soup => <div key={soup._id}>
                                     <div className="card bg-base-100 shadow-xl">
-                             <figure className="px-10 pt-10">
-                            <img src={soup.image} alt="Shoes" className="rounded-xl" />
+                                        <figure className="px-10 pt-10">
+                                            <img src={soup.image} alt="Shoes" className="rounded-xl" />
                                         </figure>
                                         <div className="card-body items-center text-center">
-                             <h2 className="card-title">{soup.name}</h2>
-                            <p>{soup.recipe}</p>
+                                            <h2 className="card-title">{soup.name}</h2>
+                                            <p>{soup.recipe}</p>
                                             <div className="card-actions">
-                                            <button className="btn btn-primary bg-white text-red-600 border-0 border-b-4 border-red-800 btn btn-primary">Add To Cart</button>
+                                                <button className="btn btn-primary bg-white text-red-600 border-0 border-b-4 border-red-800 btn btn-primary">Add To Cart</button>
                                             </div>
                                         </div>
                                     </div>
@@ -162,14 +166,14 @@ const OrderFood = () => {
                             {
                                 desserted.map(dessert => <div key={dessert._id}>
                                     <div className="card bg-base-100 shadow-xl">
-                             <figure className="px-10 pt-10">
-                            <img src={dessert.image} alt="Shoes" className="rounded-xl" />
+                                        <figure className="px-10 pt-10">
+                                            <img src={dessert.image} alt="Shoes" className="rounded-xl" />
                                         </figure>
                                         <div className="card-body items-center text-center">
-                             <h2 className="card-title">{dessert.name}</h2>
-                            <p>{dessert.recipe}</p>
+                                            <h2 className="card-title">{dessert.name}</h2>
+                                            <p>{dessert.recipe}</p>
                                             <div className="card-actions">
-                                            <button className="btn btn-primary bg-white text-red-600 border-0 border-b-4 border-red-800 btn btn-primary">Add To Cart</button>
+                                                <button className="btn btn-primary bg-white text-red-600 border-0 border-b-4 border-red-800 btn btn-primary">Add To Cart</button>
                                             </div>
                                         </div>
                                     </div>
@@ -185,14 +189,14 @@ const OrderFood = () => {
                             {
                                 drinks.map(drink => <div key={drink._id}>
                                     <div className="card bg-base-100 shadow-xl">
-                             <figure className="px-10 pt-10">
-                            <img src={drink.image} alt="Shoes" className="rounded-xl" />
+                                        <figure className="px-10 pt-10">
+                                            <img src={drink.image} alt="Shoes" className="rounded-xl" />
                                         </figure>
                                         <div className="card-body items-center text-center">
-                             <h2 className="card-title">{drink.name}</h2>
-                            <p>{drink.recipe}</p>
+                                            <h2 className="card-title">{drink.name}</h2>
+                                            <p>{drink.recipe}</p>
                                             <div className="card-actions">
-                                            <button className="btn btn-primary bg-white text-red-600 border-0 border-b-4 border-red-800 btn btn-primary">Add To Cart</button>
+                                                <button className="btn btn-primary bg-white text-red-600 border-0 border-b-4 border-red-800 btn btn-primary">Add To Cart</button>
                                             </div>
                                         </div>
                                     </div>
