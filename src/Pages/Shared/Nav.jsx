@@ -1,16 +1,19 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContest } from '../../Auth/AuthProvider';
+import UseCart from '../../Main/UseCart';
 
 const Nav = () => {
-  const {user,logOut} = useContext(AuthContest);
-  const handleOut=()=>{
+  const { user, logOut } = useContext(AuthContest);
+  const [carts] =UseCart();
+
+  const handleOut = () => {
     logOut()
-    .then(result=>
-      console.log(result)
-    )
-    .catch(err=>
-      console.log(err.message)
+      .then(result =>
+        console.log(result)
+      )
+      .catch(err =>
+        console.log(err.message)
       )
   }
   const navOption = <>
@@ -21,13 +24,12 @@ const Nav = () => {
       <Link to='/login'>Login</Link>
       <Link to='/register'>Registration</Link>
 
-      <Link to='/'>
-      <button className="btn gap-2">
-  Cart
-  <div className="badge badge-secondary">+0</div>
-</button>
+      <Link to='/dashboard'>
+        <button className="btn gap-2">
+          Cart
+          <div className="badge badge-secondary">+{carts?.length || 0}</div>
+        </button>
       </Link>
-
     </li>
 
   </>
@@ -52,19 +54,19 @@ const Nav = () => {
         </div>
 
         <div className="navbar-end rounded-lg	">
-        {
-          user?
-          (<button onClick={handleOut} className='bg-black p-3 rounded-xl font-semibold border border-indigo-600'>Log Out
-          </button>):
-          (<Link to='/login' className='bg-white p-3 rounded-xl font-semibold border border-indigo-600 text-red-600'>Login</Link>)
-        }
-        {/* {
+          {
+            user ?
+              (<button onClick={handleOut} className='bg-black p-3 rounded-xl font-semibold border border-indigo-600'>Log Out
+              </button>) :
+              (<Link to='/login' className='bg-white p-3 rounded-xl font-semibold border border-indigo-600 text-red-600'>Login</Link>)
+          }
+          {/* {
           user?
           (<button onClick={handleOut} className='bg-green-500 m-5'>LogOut
             <span><img className='rounded-full w-1/3 ml-4 justify-end' src={user?.photoURL}></img> </span> </button>):
           (<Link to='/login' className='bg-green-500 m-5 rounded p-3 text-white font-bold'>Login</Link>)
         } */}
-        
+
         </div>
       </div>
     </div>

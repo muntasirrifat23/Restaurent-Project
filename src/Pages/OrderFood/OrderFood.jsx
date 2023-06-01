@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import orderImg from '../../assets/shop/order.jpg'
 import Cover from '../Shared/Cover/Cover';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import { Helmet } from 'react-helmet-async';
+import { AuthContest } from '../../Auth/AuthProvider';
+import OrderCart from './OrderCart';
 
 
 const OrderFood = () => {
@@ -68,9 +70,27 @@ const OrderFood = () => {
             })
     }, [])
 
-    const handleAddToCart=()=>{
-
-    }
+    // const {user} = useContext(AuthContest)
+    
+    // const handleAddToCart=(items)=>{
+    //     console.log( items.category)
+    //     if(user){
+    //         const orderItem= {menuId:"_id",  email:user.email}
+    //     fetch('http://localhost:5000/cart',{
+    //         method: 'POST',
+    //         headers:{
+    //             'content-type': 'application/json'
+    //         },
+    //         body: JSON.stringify(orderItem),
+    //     })
+    //     .then(res=> res.json())
+    //     .then(data=>{
+    //         if(data.insertedId){
+    //             alert('done')
+    //         }
+    //     })
+    // }
+    // }
 
 
     return (
@@ -95,6 +115,13 @@ const OrderFood = () => {
                     <TabPanel className='flex justify-center mt-5'>
                         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 flex justify-center'>
                             {
+                                saladed.map(salad => <OrderCart key={salad._id}
+                                salad={salad}>
+                                   
+                                </OrderCart>
+                                )
+                            }
+                            {/* {
                                 saladed.map(salad => <div key={salad._id}>
                                     <div className="card bg-base-100 shadow-xl">
                                         <figure className="px-10 pt-10">
@@ -110,7 +137,7 @@ const OrderFood = () => {
                                     </div>
                                 </div>
                                 )
-                            }
+                            } */}
                         </div>
                     </TabPanel>
 
